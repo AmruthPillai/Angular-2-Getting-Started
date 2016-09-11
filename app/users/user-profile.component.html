@@ -1,0 +1,7 @@
+<div class="jumbotron" *ngIf="activeUser">
+    <h3>{{ activeUser.name }}
+        <small>({{ activeUser.username }})</small>
+    </h3>
+
+    <input type="text" class="form-control" [(ngModel)]="activeUser.name">
+</div>

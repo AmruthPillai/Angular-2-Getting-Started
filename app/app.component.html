@@ -1,0 +1,43 @@
+<header>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">Angular 2 - Getting Started</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="app-body container">
+        <div class="row">
+            <div class="col-md-4">
+                <div *ngIf="users">
+                    <h4>List of users on the site:</h4>
+                    <ul class="list-group users-list">
+                        <li class="list-group-item"
+                            *ngFor="let user of users"
+                            (click)="selectUser(user)"
+                            [class.active]="user === activeUser">
+                            {{ user.name }} ({{ user.username }})
+                        </li>
+                    </ul>
+                </div>
+
+                <user-form (userCreated)="onUserCreated($event)"></user-form>
+            </div>
+            <div class="col-md-8">
+                <user-profile [activeUser]="activeUser"></user-profile>
+
+                <div class="jumbotron" *ngIf="!activeUser">
+                    <h3>Please select a user from the left.</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container text-center">
+        Copyright &copy; 2016 Amruth Pillai
+    </div>
+</footer>
